@@ -20,7 +20,7 @@ int main() {
 
 
 	ifstream file;
-	file.open("Operationer_1a.txt");
+	file.open("/Projektuppgiften/Operationer_1a.txt");
 	string operations[30];
 	while (getline(file, operations[counter])) {
 
