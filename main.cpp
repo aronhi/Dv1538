@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
+#include<fstream>
 using namespace std;
+
 int main() {
 	int appa;
 
@@ -14,5 +16,21 @@ int main() {
 	
 	std::cout<<naaa;
 	getchar();
+
+	int counter = 0;
+
+
+	ifstream file;
+	file.open("Projektuppgiften/Operationer_1a.txt");
+	string operations[30];
+	while (getline(file, operations[counter])) {
+
+		counter++;
+
+
+	}
+	cout << operations[0];
+	getchar();
+
 	return 0;
 }
