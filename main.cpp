@@ -15,13 +15,12 @@ int main() {
 	std::string naaa=bob.substr(8,bob.length());
 	
 	std::cout<<naaa;
-	getchar();
 
 	int counter = 0;
 
 
 	ifstream file;
-	file.open("Projektuppgiften/Operationer_1a.txt");
+	file.open("Operationer_1a.txt");
 	string operations[30];
 	while (getline(file, operations[counter])) {
 
