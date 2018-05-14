@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
-#include<fstream>
+#include "ReadFromFile.h"
 using namespace std;
 
 int main() {
 	int appa;
-
+	std::string file1 = "Projektuppgiften/Operationer_1a.txt";
 	int sven;
 	cout << "hej" << endl;
 	
@@ -16,18 +16,12 @@ int main() {
 	
 	std::cout<<naaa;
 
-	int counter = 0;
 
 
-	ifstream file;
-	file.open("/Projektuppgiften/Operationer_1a.txt");
-	string operations[30];
-	while (getline(file, operations[counter])) {
-
-		counter++;
-
-
-	}
+	
+	string *operations[30];
+	
+	ReadFromFile fileToRead(file1,operations,30);
 	cout << operations[0];
 	getchar();
 
