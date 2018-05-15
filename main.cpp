@@ -42,6 +42,13 @@ int main() {
 	upg1.schedulingUpg1(operations, 1, nrOf);
 	cout << upg1.getOperationsAsString() << endl;
 
+
+	upg1.schedulingUpg1(operations, 2, nrOf);
+	cout << upg1.getOperationsAsString() << endl;
+
+	upg1.schedulingUpg1(operations, 3, nrOf);
+	cout << upg1.getOperationsAsString() << endl;
+
 	
 	
 
