@@ -17,7 +17,7 @@ scheduling::~scheduling()
 {
 }
 
-void scheduling::schedulingUpg1(std::string * arr, int nrJumps, int nrOf)
+void scheduling::schedulingOrder(std::string * arr, int nrJumps, int nrOf)
 {
 	emptyOperations();
 	Operations* walker;
@@ -66,7 +66,7 @@ string scheduling::getOperationsAsString() const
 	walker = this->first;
 	for (int i = 0; i < this->nrOfRooms; i++)
 	{
-		returnString += "Operation" + to_string(i) + ": ";
+		returnString += "Operation" + to_string(i+1) + ": ";
 		for (int j = 0; j < walker->nrOfOperations; j++)
 		{
 			returnString += walker->operationNr[j] + ", ";
