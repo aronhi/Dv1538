@@ -21,7 +21,6 @@ void scheduling::schedulingUpg1(std::string * arr, int nrJumps, int nrOf)
 {
 	emptyOperations();
 	Operations* walker;
-	walker = this->first;
 	string stringvalue;
 	int value, placement;
 	string *operationArr = new string[nrOf];
@@ -29,32 +28,35 @@ void scheduling::schedulingUpg1(std::string * arr, int nrJumps, int nrOf)
 	{
 		operationArr[i] = arr[i];
 	}
-	for (int z = 0; z < nrOfRooms; z++)
+	for (int j = 1; nrJumps>=j; nrJumps--)
 	{
+		walker = this->first;
 
-		for (int i = 0; i < nrOf; i=i + nrJumps)
+		for (int z = 0; z < nrOfRooms; z++)
 		{
-			//hittar vi värdet på nuvarnde plats i array
-			placement = operationArr[i].find_last_of(",") + 1;
-			stringvalue = operationArr[i].substr(placement, operationArr[i].length());
-			value = atoi(stringvalue.c_str());
 
-			if (value > 0 && value <= (walker->openTime - walker->time)) {
-				//om den får plats så lägger vi till operationen
+			for (int i = 0; i < nrOf; i = i + nrJumps)
+			{
+				//hittar vi värdet på nuvarnde plats i array
+				placement = operationArr[i].find_last_of(",") + 1;
+				stringvalue = operationArr[i].substr(placement, operationArr[i].length());
+				value = atoi(stringvalue.c_str());
 
-				walker->time += value;
-				placement = operationArr[i].find(",");
-				stringvalue = operationArr[i].substr(0, placement);
-				walker->operationNr[walker->nrOfOperations] = stringvalue;
-				walker->nrOfOperations++;
+				if (value > 0 && value <= (walker->openTime - walker->time)) {
+					//om den får plats så lägger vi till operationen
 
-				operationArr[i] = "?,?,-1";
+					walker->time += value;
+					placement = operationArr[i].find(",");
+					stringvalue = operationArr[i].substr(0, placement);
+					walker->operationNr[walker->nrOfOperations] = stringvalue;
+					walker->nrOfOperations++;
+
+					operationArr[i] = "?,?,-1";
+				}
 			}
+			walker = walker->next;
 		}
-		walker = walker->next;
 	}
-
-
 }
 
 string scheduling::getOperationsAsString() const

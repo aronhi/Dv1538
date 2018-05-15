@@ -9,6 +9,7 @@ using namespace std;
 int main() {
 	int nrOf = 0;
 	std::string file1 = "Operationer_1a.txt";
+	std::string file2 = "Operationer_1b.txt";
 	int sven;
 	
 	
