@@ -35,6 +35,7 @@ public:
 
 	void schedulingUpg1(std::string * arrayOfName, int nrJumps, int nrOf);
 	string getOperationsAsString()const;
+	void emptyOperations();
 
 };
 

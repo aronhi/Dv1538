@@ -19,6 +19,7 @@ scheduling::~scheduling()
 
 void scheduling::schedulingUpg1(std::string * arr, int nrJumps, int nrOf)
 {
+	emptyOperations();
 	Operations* walker;
 	walker = this->first;
 	string stringvalue;
@@ -72,4 +73,20 @@ string scheduling::getOperationsAsString() const
 		walker = walker->next;
 	}
 	return returnString;
+}
+
+void scheduling::emptyOperations()
+{
+	Operations* walker;
+	walker = this->first;
+	if (walker->nrOfOperations != 0) {
+		for (int z = 0; z < this->nrOfRooms; z++) {
+			for (int i = 0; i < walker->nrOfOperations; i++) {
+				walker->operationNr[i] = "";
+			}
+			walker->time = 0;
+			walker->nrOfOperations = 0;
+			walker=walker->next;
+		}
+	}
 }
