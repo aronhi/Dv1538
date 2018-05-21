@@ -15,6 +15,27 @@ scheduling::scheduling(int openTimes[], int nrOfRooms)
 
 scheduling::~scheduling()
 {
+	/*Operations* walker;
+	Operations* walker2;
+	walker = this->first;
+
+	for (int i = 0; i < 2; i++)
+	{
+		walker2 = walker->next;
+		delete walker;
+		Operations* walker = walker2->next;
+
+
+	}
+		delete this->first;*/
+
+	while (this->first != nullptr) {
+		Operations* walker = this->first;
+		this->first = this->first->next;
+		delete walker;
+	}
+	
+	
 }
 
 void scheduling::schedulingOrder(std::string * arr, int nrJumps, int nrOf)
