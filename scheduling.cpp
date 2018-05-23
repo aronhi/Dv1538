@@ -15,20 +15,6 @@ scheduling::scheduling(int openTimes[], int nrOfRooms)
 
 scheduling::~scheduling()
 {
-	/*Operations* walker;
-	Operations* walker2;
-	walker = this->first;
-
-	for (int i = 0; i < 2; i++)
-	{
-		walker2 = walker->next;
-		delete walker;
-		Operations* walker = walker2->next;
-
-
-	}
-		delete this->first;*/
-
 	while (this->first != nullptr) {
 		Operations* walker = this->first;
 		this->first = this->first->next;
@@ -56,7 +42,7 @@ void scheduling::schedulingOrder(std::string * arr, int nrJumps, int nrOf)
 		for (int z = 0; z < nrOfRooms; z++)
 		{
 
-			for (int i = 0; i < nrOf; i = i + nrJumps)
+			for (int i = 0; i < nrOf && walker->time<walker->openTime; i = i + nrJumps)
 			{
 				//hittar vi värdet på nuvarnde plats i array
 				placement = operationArr[i].find_last_of(",") + 1;
@@ -78,6 +64,7 @@ void scheduling::schedulingOrder(std::string * arr, int nrJumps, int nrOf)
 			walker = walker->next;
 		}
 	}
+	delete[] operationArr;
 }
 
 string scheduling::getOperationsAsString() const

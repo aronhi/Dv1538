@@ -4,8 +4,9 @@
 
 ReadFromFile::ReadFromFile(std::string fileLocation, std::string* &arrayOfName, int &nrOf)
 {
+	this->fileLocation = fileLocation;
 	//string* banan = *arrayOfName;
-	std::ifstream file;
+	
 	file.open(fileLocation);
 	
 	while (getline(file, arrayOfName[nrOf])) {
@@ -13,6 +14,7 @@ ReadFromFile::ReadFromFile(std::string fileLocation, std::string* &arrayOfName, 
 
 	}
 	sortArray(arrayOfName, nrOf);
+	file.close();
 }
 
 ReadFromFile::~ReadFromFile()

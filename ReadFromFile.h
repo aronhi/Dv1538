@@ -11,6 +11,7 @@ public:
 	void sortArray(std::string* &arrayOfName, int nrOf);
 
 private:
-
+	string fileLocation;
+	std::ifstream file;
 };
 #endif
