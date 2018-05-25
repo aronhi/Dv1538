@@ -5,8 +5,6 @@
 ReadFromFile::ReadFromFile(std::string fileLocation, std::string* &arrayOfName, int &nrOf)
 {
 	this->fileLocation = fileLocation;
-	//string* banan = *arrayOfName;
-	
 	file.open(fileLocation);
 	
 	while (getline(file, arrayOfName[nrOf])) {
