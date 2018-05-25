@@ -54,6 +54,7 @@ int main() {
 
 	cout << end - start << endl;
 
+	getchar();
 
 	cout << "Operation 1 b" << endl;
 	start = clock();
@@ -70,7 +71,7 @@ int main() {
 	end = clock();
 
 	cout << end - start << endl;
-
+	getchar();
 	cout << "Operation 2" << endl;
 	start = clock();
 	upg2.schedulingOrder(operations2, 1, nrOf2);
